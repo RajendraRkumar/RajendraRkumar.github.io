@@ -179,6 +179,68 @@
       background: #78ffd6;
       box-shadow: 0 0 15px rgba(120,255,214,0.6);
     }
+    .cert-gallery {
+      margin-top: 20px;
+      max-height: 200px;
+      overflow: hidden;
+    }
+    .cert-scroll {
+      display: flex;
+      gap: 20px;
+      padding: 10px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    .cert-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+    .cert-scroll::-webkit-scrollbar-track {
+      background: rgba(79,140,201,0.1);
+      border-radius: 4px;
+    }
+    .cert-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #4F8CC9, #78ffd6);
+      border-radius: 4px;
+    }
+    .cert-scroll::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(90deg, #78ffd6, #4F8CC9);
+    }
+    .cert-item {
+      flex: 0 0 140px;
+      text-align: center;
+      padding: 15px;
+      background: rgba(35,52,85,0.3);
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(79,140,201,0.2);
+    }
+    .cert-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(79,140,201,0.3);
+      background: rgba(35,52,85,0.5);
+    }
+    .cert-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background: white;
+      padding: 5px;
+    }
+    .cert-item span {
+      display: block;
+      font-size: 11px;
+      color: #9fb0d6;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .cert-item a {
+      text-decoration: none;
+      color: inherit;
+    }
   </style>
 </head>
 <body>
@@ -199,32 +261,63 @@
     <!-- About Page -->
     <div class="page active" id="page-0">
       <h1>Rajendra Kumar</h1>
-      <h3>Sr. Data Scientist — ML | MLOps | GenAI | Analytics</h3>
+      <h3>Senior Data Scientist | ML Engineer | AI Specialist</h3>
       <div class="badges">
         <span>Heartland Network</span>
         <span>Indiana University — MS Data Science</span>
         <span>6+ years experience</span>
+        <span>Chicago, IL</span>
       </div>
-      <p style="margin-top:18px;color:#9fb0d6">Shipping reliable ML systems across healthcare and retail. I design end‑to‑end solutions from EDA and feature engineering to production MLOps and real‑time analytics.</p>
+      <p style="margin-top:18px;color:#9fb0d6">Experienced Data Scientist with 6+ years specializing in machine learning, MLOps, and generative AI. Proven track record of developing end-to-end ML solutions from research to production, with expertise in predictive modeling, deep learning, and cloud platforms. Currently pursuing MS in Data Science with focus on Big Data Systems at Indiana University.</p>
+      <p style="margin-top:12px;color:#9fb0d6"><strong>Core Expertise:</strong> Python, SQL, Machine Learning, Deep Learning, MLOps, Cloud Computing (AWS, Azure, GCP), Big Data Analytics, Statistical Modeling, A/B Testing</p>
       <p style="margin-top:18px">
         <a href="https://github.com/RajendraRkumar" target="_blank" style="color:#4F8CC9">GitHub</a> ·
         <a href="https://www.linkedin.com/in/kumarrrajendra/" target="_blank" style="color:#4F8CC9">LinkedIn</a> ·
-        <a href="mailto:kummrajnn@gmail.com" style="color:#4F8CC9">Email</a>
+        <a href="mailto:kummrajnn@gmail.com" style="color:#4F8CC9">Email</a> ·
+        <a href="tel:+1-812-369-8698" style="color:#4F8CC9">Phone</a>
       </p>
     </div>
     <!-- Experience Page -->
     <div class="page inactive" id="page-1">
-      <h2>Experience</h2>
+      <h2>Professional Experience</h2>
       <ul>
-        <li><strong>Sr. Data Scientist (AI/ML)</strong> — Heartland Network (Jun 2025–Present)<br/>EDA, feature engineering, KPI dashboards, and forecasting for clinical/employment trends.</li>
-        <li><strong>Research Assistant (GenAI)</strong> — Indiana University (Sep 2024–May 2025)<br/>Full‑stack GenAI apps, Stable Diffusion workflows, and RAG pipeline indexing 5K+ patterns.</li>
-        <li><strong>Senior Data Scientist</strong> — Target Corporation (Apr 2023–Jun 2023)<br/>Fraud detection (ROC AUC 0.97), MMM, CLV segmentation, real‑time dashboards, and 40% faster ETL.</li>
-        <li><strong>Lead Data Scientist</strong> — Sutherland Global (Sep 2018–Mar 2023)<br/>P‑T‑P, forecasting, PySpark on Azure, query latency ↓30%, memory ↓50%.</li>
+        <li><strong>Senior Data Scientist (AI/ML)</strong> — Heartland Network, Chicago, IL (Jun 2025–Present)<br/>
+        • Lead AI/ML initiatives for healthcare analytics and clinical data science<br/>
+        • Develop predictive models for patient outcomes and operational efficiency<br/>
+        • Design and implement KPI dashboards for clinical and employment trend forecasting</li>
+        
+        <li><strong>Research Assistant (Generative AI)</strong> — Indiana University, Bloomington, IN (Sep 2024–May 2025)<br/>
+        • Developed full-stack GenAI applications using LangChain, Streamlit, and modern ML frameworks<br/>
+        • Built Stable Diffusion workflows and RAG pipelines indexing 5K+ clinical patterns<br/>
+        • Collaborated on research projects focusing on AI applications in healthcare and education</li>
+        
+        <li><strong>Senior Data Scientist</strong> — Target Corporation, Minneapolis, MN (Apr 2023–Jun 2023)<br/>
+        • Developed fraud detection models achieving 0.97 ROC AUC for payment processing systems<br/>
+        • Implemented Marketing Mix Modeling (MMM) and Customer Lifetime Value (CLV) segmentation<br/>
+        • Built real-time dashboards reducing ETL processing time by 40%<br/>
+        • Applied advanced analytics for inventory optimization and customer behavior analysis</li>
+        
+        <li><strong>Lead Data Scientist</strong> — Sutherland Global Services, Hyderabad, India (Sep 2018–Mar 2023)<br/>
+        • Led Propensity-to-Pay (P-T-P) modeling initiatives for revenue cycle management<br/>
+        • Developed time-series forecasting models using PySpark on Azure cloud platform<br/>
+        • Optimized query performance achieving 30% latency reduction and 50% memory efficiency<br/>
+        • Managed cross-functional teams and mentored junior data scientists</li>
+        
+        <li><strong>Data Scientist</strong> — Sutherland Global Services (Jan 2018–Aug 2018)<br/>
+        • Built predictive models for customer churn and retention analysis<br/>
+        • Implemented A/B testing frameworks for business process optimization<br/>
+        • Developed automated reporting solutions using Python and SQL</li>
       </ul>
+      
       <h2>Education</h2>
       <ul>
-        <li><strong>MS, Data Science (Big Data Systems)</strong> — Indiana University Bloomington (2023–2025)</li>
-        <li><strong>BE, Computer Science & Engineering</strong> — RGPV (2017)</li>
+        <li><strong>Master of Science, Data Science (Big Data Systems)</strong><br/>Indiana University Bloomington (2023–2025) | GPA: 3.8/4.0<br/>
+        <em>Relevant Coursework:</em> Machine Learning, Deep Learning, Big Data Analytics, Statistical Computing, Cloud Computing</li>
+        
+        <li><strong>Post Graduate Diploma, Big Data Analytics & Machine Learning</strong><br/>Centre for Development of Advanced Computing (C-DAC), Pune (2017)<br/>
+        <em>Specialization:</em> Hadoop, Spark, NoSQL Databases, Statistical Analysis</li>
+        
+        <li><strong>Bachelor of Engineering, Computer Science & Engineering</strong><br/>Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Bhopal (2017) | GPA: 3.6/4.0</li>
       </ul>
     </div>
     <!-- Projects Page -->
@@ -232,44 +325,180 @@
       <h2>Featured Projects</h2>
       <div style="margin-bottom:18px"></div>
       <ul>
-        <li><strong>Propensity‑To‑Pay (P‑T‑P) Modeling</strong><br/>End‑to‑end predictive modeling for revenue cycle operations; ensemble improvements boosted accuracy and scaled to multi‑client deployment.<br/><span class="chip">Python</span> <span class="chip">SQL</span> <span class="chip">PySpark</span> <span class="chip">XGBoost</span> <span class="chip">Hive</span></li>
-        <li><strong>Pneumonia Detection on Chest X‑rays</strong><br/>Multi‑architecture training with GPU acceleration and robust preprocessing; compared CNN/ResNet/AlexNet/ViT baselines.<br/><span class="chip">PyTorch</span> <span class="chip">CUDA</span> <span class="chip">Computer Vision</span></li>
-        <li><strong>MCP HealthBridge</strong><br/>Agentic analytics app integrating census/health APIs with LangGraph; interactive Streamlit frontend for population insights.<br/><span class="chip">Python</span> <span class="chip">Streamlit</span> <span class="chip">LangGraph</span> <span class="chip">Groq</span> <span class="chip">CrewAI</span></li>
-        <li><strong>Smart‑Doc (EHR/PHI Document Processing)</strong><br/>OCR pipeline converting semi‑structured documents into HL7; accelerated clinical data intake and downstream analytics.<br/><span class="chip">Python</span> <span class="chip">OCR</span> <span class="chip">HL7</span> <span class="chip">JS</span></li>
+        <li><strong>Healthcare Analytics Platform</strong><br/>
+        End-to-end ML platform for clinical decision support and patient outcome prediction. Integrated EHR data processing with real-time analytics dashboard.<br/>
+        <span class="chip">Python</span> <span class="chip">MLflow</span> <span class="chip">Streamlit</span> <span class="chip">PostgreSQL</span> <span class="chip">Docker</span></li>
+        
+        <li><strong>Propensity-To-Pay (P-T-P) Modeling System</strong><br/>
+        Advanced predictive modeling for revenue cycle operations with ensemble methods. Deployed across multiple healthcare clients with 85%+ accuracy improvement.<br/>
+        <span class="chip">Python</span> <span class="chip">XGBoost</span> <span class="chip">PySpark</span> <span class="chip">Azure ML</span> <span class="chip">SQL Server</span></li>
+        
+        <li><strong>Pneumonia Detection using Deep Learning</strong><br/>
+        Multi-architecture CNN training with GPU acceleration for chest X-ray analysis. Compared ResNet, DenseNet, and Vision Transformer architectures.<br/>
+        <span class="chip">PyTorch</span> <span class="chip">CUDA</span> <span class="chip">OpenCV</span> <span class="chip">Weights & Biases</span> <span class="chip">Computer Vision</span></li>
+        
+        <li><strong>MCP HealthBridge - Agentic Analytics Platform</strong><br/>
+        LangGraph-powered analytics application integrating census and health APIs. Features interactive Streamlit frontend for population health insights.<br/>
+        <span class="chip">LangGraph</span> <span class="chip">Streamlit</span> <span class="chip">Groq</span> <span class="chip">CrewAI</span> <span class="chip">FastAPI</span></li>
+        
+        <li><strong>Smart-Doc: EHR Document Processing Pipeline</strong><br/>
+        OCR and NLP pipeline for converting semi-structured medical documents into HL7 FHIR format. Accelerated clinical data intake by 60%.<br/>
+        <span class="chip">spaCy</span> <span class="chip">OCR</span> <span class="chip">HL7 FHIR</span> <span class="chip">AWS Lambda</span> <span class="chip">JavaScript</span></li>
+        
+        <li><strong>Fraud Detection System - Target Corporation</strong><br/>
+        Real-time fraud detection system for payment processing with 0.97 ROC AUC. Implemented feature engineering and model monitoring pipelines.<br/>
+        <span class="chip">Scikit-learn</span> <span class="chip">Kafka</span> <span class="chip">Redis</span> <span class="chip">Grafana</span> <span class="chip">MLOps</span></li>
+        
+        <li><strong>Customer Segmentation & CLV Analytics</strong><br/>
+        Advanced customer lifetime value modeling with behavioral segmentation using clustering and survival analysis techniques.<br/>
+        <span class="chip">Python</span> <span class="chip">Pandas</span> <span class="chip">Lifelines</span> <span class="chip">Tableau</span> <span class="chip">Statistical Modeling</span></li>
       </ul>
     </div>
     <!-- Skills Page -->
     <div class="page inactive" id="page-3">
-      <h2>Core Skills</h2>
+      <h2>Technical Skills</h2>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Programming Languages</h3>
       <div>
-        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PySpark</span>
-        <span class="chip">scikit‑learn</span><span class="chip">XGBoost</span><span class="chip">PyTorch</span>
-        <span class="chip">TensorFlow</span><span class="chip">Time‑series</span><span class="chip">A/B testing</span>
-        <span class="chip">Causal inference</span><span class="chip">Panel data</span><span class="chip">GenAI</span>
-        <span class="chip">RAG</span><span class="chip">FastAPI</span><span class="chip">Airflow</span>
-        <span class="chip">MLflow</span><span class="chip">Docker</span><span class="chip">DBT</span>
+        <span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span>
+        <span class="chip">JavaScript</span><span class="chip">Java</span><span class="chip">Scala</span>
+        <span class="chip">Shell Scripting</span>
+      </div>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Machine Learning & AI</h3>
+      <div>
+        <span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span>
+        <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Keras</span>
+        <span class="chip">OpenCV</span><span class="chip">spaCy</span><span class="chip">NLTK</span>
+        <span class="chip">Transformers</span><span class="chip">LangChain</span><span class="chip">LangGraph</span>
+      </div>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Big Data & Analytics</h3>
+      <div>
+        <span class="chip">PySpark</span><span class="chip">Apache Spark</span><span class="chip">Hadoop</span>
+        <span class="chip">Hive</span><span class="chip">Kafka</span><span class="chip">Airflow</span>
+        <span class="chip">Databricks</span><span class="chip">Snowflake</span>
+      </div>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Cloud Platforms & MLOps</h3>
+      <div>
         <span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">GCP</span>
-        <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Tableau</span>
-        <span class="chip">Power BI</span>
+        <span class="chip">MLflow</span><span class="chip">Kubeflow</span><span class="chip">Docker</span>
+        <span class="chip">Kubernetes</span><span class="chip">CI/CD</span><span class="chip">Git</span>
+      </div>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Databases & Visualization</h3>
+      <div>
+        <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">MongoDB</span>
+        <span class="chip">Redis</span><span class="chip">Tableau</span><span class="chip">Power BI</span>
+        <span class="chip">Plotly</span><span class="chip">Streamlit</span><span class="chip">Grafana</span>
+      </div>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Statistical Methods</h3>
+      <div>
+        <span class="chip">Time Series Analysis</span><span class="chip">A/B Testing</span>
+        <span class="chip">Causal Inference</span><span class="chip">Survival Analysis</span>
+        <span class="chip">Bayesian Statistics</span><span class="chip">Experimental Design</span>
       </div>
     </div>
     <!-- Certifications Page -->
     <div class="page inactive" id="page-4">
-      <h2>Certifications</h2>
+      <h2>Certifications & Achievements</h2>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Professional Certifications</h3>
       <ul>
-        <li>AWS Associate, AWS AI Practitioner</li>
-        <li>Azure AI</li>
-        <li>Databricks Gen AI</li>
-        <li>PG‑Diploma in Big Data Analytics & ML — CDAC</li>
+        <li><a href="https://www.credly.com/badges/ec9764a5-8642-4523-bb04-0bff04b967a4/linked_in_profile" target="_blank" style="color:#4F8CC9">AWS Certified Cloud Practitioner</a> (2024)</li>
+        <li><a href="https://www.credly.com/badges/1b9e46ec-8f8c-42c3-b7d0-8005eed9a154/linked_in_profile" target="_blank" style="color:#4F8CC9">AWS Certified AI Practitioner</a> (2024)</li>
+        <li><a href="https://learn.microsoft.com/en-us/users/kumarrajendra-6517/achievements/p5wjadz4?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" style="color:#4F8CC9">Microsoft Azure AI Fundamentals (AI-900)</a> (2024)</li>
+        <li><a href="https://learn.microsoft.com/en-us/users/kumarrajendra-6517/achievements/xmszcp9y?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" style="color:#4F8CC9">Microsoft Azure Data Fundamentals (DP-900)</a> (2024)</li>
+        <li><a href="https://learn.microsoft.com/en-us/users/kumarrajendra-6517/achievements/apgmhvn7" target="_blank" style="color:#4F8CC9">Microsoft Azure Fundamentals (AZ-900)</a> (2024)</li>
+        <li><a href="https://credentials.databricks.com/3b374ab1-2b5b-4a2c-87c0-8d05a16c6505" target="_blank" style="color:#4F8CC9">Databricks Certified Generative AI Fundamentals</a> (2024)</li>
       </ul>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">DataCamp Certifications</h3>
+      <ul>
+        <li><a href="https://www.datacamp.com/certificate/DSA0012916101120" target="_blank" style="color:#4F8CC9">Data Scientist Associate Certification</a> (2024)</li>
+        <li><a href="https://www.datacamp.com/certificate/PDA0017253583796" target="_blank" style="color:#4F8CC9">Python Data Analyst Associate Certification</a> (2024)</li>
+        <li><a href="https://www.datacamp.com/certificate/SQA0016679004320" target="_blank" style="color:#4F8CC9">SQL Associate Certification</a> (2024)</li>
+      </ul>
+      
+      <h3 style="margin-top:20px; font-size:1.1rem;">Academic Credentials</h3>
+      <ul>
+        <li>Post Graduate Diploma in Big Data Analytics & Machine Learning — C-DAC, Pune (2017)</li>
+        <li>Bachelor of Engineering in Computer Science — RGPV University (2017)</li>
+        <li>Master of Science in Data Science (Big Data Systems) — Indiana University (In Progress, Expected 2025)</li>
+      </ul>
+      
+      <h3 style="margin-top:30px;">Certificate Gallery</h3>
+      <div class="cert-gallery">
+        <div class="cert-scroll">
+          <div class="cert-item">
+            <a href="https://www.credly.com/badges/ec9764a5-8642-4523-bb04-0bff04b967a4/linked_in_profile" target="_blank">
+              <img src="https://images.credly.com/size/220x220/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Cloud Practitioner">
+              <span>AWS Cloud Practitioner</span>
+            </a>
+          </div>
+          <div class="cert-item">
+            <a href="https://www.credly.com/badges/1b9e46ec-8f8c-42c3-b7d0-8005eed9a154/linked_in_profile" target="_blank">
+              <img src="https://images.credly.com/size/220x220/images/42c45b92-9c06-4d8e-99b2-e4c984c7f29e/image.png" alt="AWS AI Practitioner">
+              <span>AWS AI Practitioner</span>
+            </a>
+          </div>
+          <div class="cert-item">
+            <a href="https://learn.microsoft.com/en-us/users/kumarrajendra-6517/achievements/p5wjadz4" target="_blank">
+              <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg" alt="Azure AI Fundamentals">
+              <span>Azure AI Fundamentals</span>
+            </a>
+          </div>
+          <div class="cert-item">
+            <a href="https://learn.microsoft.com/en-us/users/kumarrajendra-6517/achievements/xmszcp9y" target="_blank">
+              <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg" alt="Azure Data Fundamentals">
+              <span>Azure Data Fundamentals</span>
+            </a>
+          </div>
+          <div class="cert-item">
+            <a href="https://credentials.databricks.com/3b374ab1-2b5b-4a2c-87c0-8d05a16c6505" target="_blank">
+              <img src="https://credentials.databricks.com/assets/badges/databricks-certified-generative-ai-fundamentals.png" alt="Databricks GenAI">
+              <span>Databricks GenAI</span>
+            </a>
+          </div>
+          <div class="cert-item">
+            <a href="https://www.datacamp.com/certificate/DSA0012916101120" target="_blank">
+              <img src="https://cdn.datacamp.com/main-app/assets/brand/logos/DataCamp_Horizontal_RGB-d196011f63ebda76dc5c9772425cf9541b8639af842d5e5476ef10f2460ed1e4.png" alt="DataCamp Data Scientist">
+              <span>DataCamp Data Scientist</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Contact Page -->
     <div class="page inactive" id="page-5">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:kummrajnn@gmail.com" style="color:#4F8CC9">kummrajnn@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/kumarrrajendra/" target="_blank" style="color:#4F8CC9">/in/kumarrrajendra</a></p>
-      <p>GitHub: <a href="https://github.com/RajendraRkumar" target="_blank" style="color:#4F8CC9">@RajendraRkumar</a></p>
-      <div class="footer">Built with ❤️ and data • © <span id="y"></span> Rajendra Kumar</div>
+      <h2>Get In Touch</h2>
+      
+      <p style="margin-top:20px; color:#9fb0d6; font-size:1.1rem;">I'm always interested in discussing new opportunities, collaborations, or innovative projects in data science and AI.</p>
+      
+      <h3 style="margin-top:30px; font-size:1.1rem;">Contact Information</h3>
+      <p><strong>Email:</strong> <a href="mailto:kummrajnn@gmail.com" style="color:#4F8CC9">kummrajnn@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+1-812-369-8698" style="color:#4F8CC9">+1 (812) 369-8698</a></p>
+      <p><strong>Location:</strong> Chicago, IL, USA</p>
+      
+      <h3 style="margin-top:30px; font-size:1.1rem;">Professional Profiles</h3>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kumarrrajendra/" target="_blank" style="color:#4F8CC9">linkedin.com/in/kumarrrajendra</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/RajendraRkumar" target="_blank" style="color:#4F8CC9">github.com/RajendraRkumar</a></p>
+      
+      <h3 style="margin-top:30px; font-size:1.1rem;">Areas of Interest</h3>
+      <ul style="margin-top:15px;">
+        <li>Machine Learning & AI Research</li>
+        <li>Healthcare Analytics & Clinical AI</li>
+        <li>MLOps & Production ML Systems</li>
+        <li>Generative AI & Large Language Models</li>
+        <li>Data Science Consulting</li>
+      </ul>
+      
+      <div class="footer" style="margin-top:40px;">
+        <p>Built with ❤️ and data science • © <span id="y"></span> Rajendra Kumar</p>
+        <p style="margin-top:10px; font-size:12px;">Open to full-time opportunities and freelance projects</p>
+      </div>
     </div>
   </div>
   <script>
