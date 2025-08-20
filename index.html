@@ -43,9 +43,33 @@
     footer{margin-top:26px;color:#92a7d6;font-size:13px;text-align:center}
     /* small flair */
     .spark{height:2px;background:linear-gradient(90deg,transparent,#4F8CC9,transparent);border-radius:2px;margin:10px 0 16px}
+    /* Central vertical pole */
+    .center-pole {
+      position: fixed;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 100vh;
+      background: linear-gradient(180deg, #4F8CC9 0%, #78ffd6 100%);
+      z-index: 0;
+      border-radius: 3px;
+      box-shadow: 0 0 16px #4F8CC944;
+      pointer-events: none;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+    }
+    .rot-section {
+      transition: transform 0.5s cubic-bezier(.4,2,.3,1);
+      will-change: transform;
+      perspective: 1200px;
+    }
   </style>
 </head>
 <body>
+  <div class="center-pole"></div>
   <div class="wrap">
     <!-- Header -->
     <header>
@@ -186,6 +210,18 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    // Scroll-based rotation for sections
+    const rotSections = document.querySelectorAll('.rot-section');
+    window.addEventListener('scroll', () => {
+      rotSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const winH = window.innerHeight;
+        // Calculate rotation based on section's vertical position
+        const center = rect.top + rect.height/2 - winH/2;
+        const rotate = center / winH * 60; // max 60deg
+        section.style.transform = `rotateY(${rotate}deg)`;
+      });
+    });
   </script>
 </body>
 </html>
