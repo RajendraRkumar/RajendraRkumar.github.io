@@ -871,6 +871,75 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: transparent;
+      margin: 5% auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #ccc;
+    }
+
+    #modalCaption {
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
+      }
+      
+      .close {
+        font-size: 28px;
+        top: -35px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1287,8 +1356,8 @@
       
       <div class="gallery-grid" id="gallery-content">
         <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x220/667eea/ffffff?text=Data+Science+Project" alt="Data Science Project">
-          <div class="gallery-caption">ML Model Development - Fraud Detection</div>
+          <img src="assets/images/Sutherland.png" alt="Sutherland Professional Experience" onclick="openImageModal(this.src, this.alt)">
+          <div class="gallery-caption">Professional Experience at Sutherland Global Services</div>
         </div>
         
         <div class="gallery-item">
@@ -1347,6 +1416,15 @@
       </div>
     </section>
     </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeImageModal()">
+      <div class="modal-content">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img id="modalImage" src="" alt="">
+        <div id="modalCaption"></div>
+      </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
@@ -1716,6 +1794,44 @@
       const redFmImg = document.querySelector('img[alt*="Red FM Contest"]');
       if (redFmImg) {
         tryAlternateThumbnail(redFmImg, '9rRm5q05aUI');
+      }
+    });
+
+    // Modal functions for image popup
+    function openImageModal(imageSrc, imageAlt) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
+      
+      modal.style.display = 'block';
+      modalImg.src = imageSrc;
+      modalImg.alt = imageAlt;
+      modalCaption.textContent = imageAlt;
+      
+      // Prevent body scrolling when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
+      
+      // Restore body scrolling
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside the image
+    document.addEventListener('click', function(event) {
+      const modal = document.getElementById('imageModal');
+      if (event.target === modal) {
+        closeImageModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeImageModal();
       }
     });
   </script>
