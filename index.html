@@ -7,7 +7,15 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-Z9RYCTWJ20');
+    
+    gtag('config', 'G-Z9RYCTWJ20', {
+      page_title: 'Rajendra Kumar Portfolio',
+      page_location: window.location.href,
+      send_page_view: true
+    });
+    
+    // Debug: Log to console
+    console.log('Google Analytics loaded with ID: G-Z9RYCTWJ20');
   </script>
   
   <meta charset="UTF-8">
