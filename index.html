@@ -23,9 +23,7 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    /* Removed scroll-behavior: smooth to prevent conflicts with custom navigation */
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -56,123 +54,79 @@
       padding: 20px;
     }
 
-    /* Enhanced Navigation */
+    /* Enhanced Navigation - Modern & Clean Design */
+    /* scroll-behavior: smooth disabled to prevent conflicts */
     .navbar {
       position: fixed;
-      top: 20px;
+      top: 25px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
-      backdrop-filter: blur(25px);
-      border-radius: 50px;
-      padding: 12px 25px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(102, 126, 234, 0.2);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 8px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       z-index: 1000;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: navSlideIn 0.8s ease-out;
+      transition: all 0.3s ease;
+      max-width: 90vw;
+      overflow: hidden;
     }
 
-    @keyframes navSlideIn {
-      from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
-    }
-
-    .navbar:hover {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 1), rgba(118, 75, 162, 1));
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(102, 126, 234, 0.4);
-      transform: translateX(-50%) translateY(-3px) scale(1.02);
-    }
+  /* Removed hover effect for simpler static navbar */
 
     .navbar.scrolled {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.98), rgba(118, 75, 162, 0.98));
-      backdrop-filter: blur(30px);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(102, 126, 234, 0.3);
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(25px);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-links {
       display: flex;
-      gap: 8px;
+      gap: 4px;
       list-style: none;
-      position: relative;
+      margin: 0;
+      padding: 0;
+      align-items: center;
     }
 
     .nav-btn {
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255,255,255,0.78);
       font-weight: 500;
-      padding: 12px 20px;
-      border-radius: 25px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 8px 14px;
+      border-radius: 10px;
       position: relative;
-      overflow: hidden;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-btn:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .nav-btn:hover:before {
-      left: 100%;
-    }
-
-    .nav-btn:hover, .nav-btn.active {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      background: transparent;
     }
 
     .nav-btn.active {
-      background: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+      color: #ffffff;
+      background: rgba(255,255,255,0.18);
     }
 
-    .nav-btn.active:after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 6px;
-      height: 6px;
-      background: #ffffff;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-    }
-
-    /* Mobile Navigation */
+    /* Mobile Menu Button */
     .mobile-menu-btn {
       display: none;
       background: none;
       border: none;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 18px;
       cursor: pointer;
       padding: 8px;
       border-radius: 8px;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
+      margin-left: 8px;
     }
 
     .mobile-menu-btn:hover {
+      color: #ffffff;
       background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     /* Mobile Responsive Navigation */
@@ -382,6 +336,7 @@
       position: relative;
       overflow: hidden;
       transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      scroll-margin-top: 90px; /* precise compensation for navbar height + spacing */
     }
 
     .section::before {
@@ -928,7 +883,7 @@
   <!-- Navigation -->
   <nav class="navbar">
     <ul class="nav-links">
-      <li><a href="#about" class="nav-btn active">About</a></li>
+      <li><a href="#about" class="nav-btn">About</a></li>
       <li><a href="#experience" class="nav-btn">Experience</a></li>
       <li><a href="#skills" class="nav-btn">Skills</a></li>
       <li><a href="#education" class="nav-btn">Education</a></li>
@@ -1410,8 +1365,8 @@
   </div>
 
   <script>
-    // Enhanced smooth scrolling with easing
-    function smoothScrollTo(targetPosition, duration = 1000) {
+    // Fast and smooth scrolling
+    function smoothScrollTo(targetPosition, duration = 300) {
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
       let startTime = null;
@@ -1419,91 +1374,140 @@
       function animation(currentTime) {
         if (startTime === null) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
-        const run = easeInOutQuart(timeElapsed, startPosition, distance, duration);
+        const progress = Math.min(timeElapsed / duration, 1);
+        
+        // Use simpler easing function for better performance
+        const easeProgress = progress * (2 - progress); // easeOutQuad
+        const run = startPosition + (distance * easeProgress);
+        
         window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
-
-      function easeInOutQuart(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t * t * t + b;
-        t -= 2;
-        return -c / 2 * (t * t * t * t - 2) + b;
+        if (progress < 1) requestAnimationFrame(animation);
       }
 
       requestAnimationFrame(animation);
     }
 
-    // Navigation functionality
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Remove active class from all nav buttons
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        // Add active class to clicked button
+    // Ultra-simple, bulletproof navigation
+    function handleNavClick(e) {
+      e.preventDefault();
+      
+      const href = this.getAttribute('href');
+      const targetId = href.substring(1); // Remove the #
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // Update active state
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
         
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-          const targetPosition = targetSection.offsetTop - 100;
-          smoothScrollTo(targetPosition, 800);
+        // Simple scroll - no fancy animation
+        const top = targetElement.offsetTop - 100;
+        window.scrollTo(0, top);
+        
+        // Update URL
+        window.location.hash = href;
+        
+        // Close mobile menu if open
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          const menuIcon = document.querySelector('.mobile-menu-btn span');
+          if (menuIcon) menuIcon.textContent = '☰';
         }
-      });
-    });
+      }
+    }
 
-    // Update active nav button on scroll
-    window.addEventListener('scroll', function() {
-      const sections = document.querySelectorAll('.section');
-      const navBtns = document.querySelectorAll('.nav-btn');
+    // Simple event listener setup
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add click listeners to navigation buttons
+      const navButtons = document.querySelectorAll('.nav-btn');
+      navButtons.forEach(function(button) {
+        button.addEventListener('click', handleNavClick);
+      });
       
-      let currentSection = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-          currentSection = section.getAttribute('id');
+      // Set initial active state
+      const hash = window.location.hash;
+      if (hash) {
+        const activeBtn = document.querySelector(`.nav-btn[href="${hash}"]`);
+        if (activeBtn) {
+          document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+          activeBtn.classList.add('active');
         }
-      });
-
-      navBtns.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('href') === '#' + currentSection) {
-          btn.classList.add('active');
-        }
-      });
+      } else {
+        const aboutBtn = document.querySelector('.nav-btn[href="#about"]');
+        if (aboutBtn) aboutBtn.classList.add('active');
+      }
     });
 
-    // Keyboard navigation
+    // IntersectionObserver-based active section highlighting (more efficient)
+    const sectionEls = document.querySelectorAll('.section');
+    const navMap = new Map();
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      const id = btn.getAttribute('href');
+      if (id && id.startsWith('#')) navMap.set(id.substring(1), btn);
+    });
+
+    // Improved intersection observer with better section detection logic
+    // Temporarily disabled to prevent interference with click navigation
+    /*
+    const navObserver = new IntersectionObserver(entries => {
+      // Filter for sections that are currently intersecting
+      const intersectingEntries = entries.filter(entry => entry.isIntersecting);
+      
+      // If we have intersecting entries, use the one with the highest intersection ratio
+      if (intersectingEntries.length > 0) {
+        // Sort by intersection ratio (highest first)
+        const bestMatch = [...intersectingEntries].sort((a, b) => 
+          b.intersectionRatio - a.intersectionRatio
+        )[0];
+        
+        const activeId = bestMatch.target.id;
+        
+        // Only update UI if we have a valid section ID
+        if (activeId) {
+          // Update active state in navigation
+          navMap.forEach(btn => btn.classList.remove('active'));
+          const activeBtn = navMap.get(activeId);
+          if (activeBtn) activeBtn.classList.add('active');
+        }
+      }
+    }, { 
+      root: null,
+      rootMargin: '-10% 0px -70% 0px',  // Better top margin for earlier detection
+      threshold: [0.1, 0.2, 0.3, 0.4, 0.5] // More threshold points for smoother transitions
+    });
+
+    // Observe all sections
+    sectionEls.forEach(sec => navObserver.observe(sec));
+    */
+
+    // Simplified keyboard navigation (optional - can be disabled if causing issues)
+    /*
     document.addEventListener('keydown', function(e) {
-      const sections = ['about', 'experience', 'skills', 'education', 'projects', 'gallery', 'contact'];
-      const currentActive = document.querySelector('.nav-btn.active');
-      let currentIndex = 0;
-      
-      if (currentActive) {
-        const currentHref = currentActive.getAttribute('href').substring(1);
-        currentIndex = sections.indexOf(currentHref);
-      }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        const sections = ['about', 'experience', 'skills', 'education', 'projects', 'gallery', 'contact'];
+        const currentActive = document.querySelector('.nav-btn.active');
+        let currentIndex = 0;
+        
+        if (currentActive) {
+          const currentHref = currentActive.getAttribute('href').substring(1);
+          currentIndex = sections.indexOf(currentHref);
+        }
 
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         e.preventDefault();
-        const nextIndex = (currentIndex + 1) % sections.length;
-        const targetSection = document.getElementById(sections[nextIndex]);
-        if (targetSection) {
-          const targetPosition = targetSection.offsetTop - 100;
-          smoothScrollTo(targetPosition, 600);
+        let nextIndex;
+        
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          nextIndex = (currentIndex + 1) % sections.length;
+        } else {
+          nextIndex = (currentIndex - 1 + sections.length) % sections.length;
         }
-      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        const prevIndex = (currentIndex - 1 + sections.length) % sections.length;
-        const targetSection = document.getElementById(sections[prevIndex]);
-        if (targetSection) {
-          const targetPosition = targetSection.offsetTop - 100;
-          smoothScrollTo(targetPosition, 600);
-        }
+        
+        const targetBtn = document.querySelector(`[href="#${sections[nextIndex]}"]`);
+        if (targetBtn) targetBtn.click();
       }
     });
+    */
 
     // Auto-populate gallery from assets folder
     function loadGalleryFromAssets() {
@@ -1543,10 +1547,7 @@
       observer.observe(section);
     });
 
-    // Set initial active state
-    document.querySelector('.nav-btn[href="#about"]').classList.add('active');
-
-    // Mobile menu functionality
+  // Mobile menu functionality
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     
@@ -1564,41 +1565,14 @@
       });
     }
 
-    // Close mobile menu when clicking on a nav link
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-          navLinks.classList.remove('active');
-          const mobileBtn = document.querySelector('.mobile-menu-btn span');
-          if (mobileBtn) {
-            mobileBtn.innerHTML = '☰';
-          }
-        }
-      });
-    });
+  // Note: nav button click handling (including mobile menu closing) is
+  // handled centrally by `handleNavClick`, so no extra listeners are added here.
 
-    // Enhanced scroll effects for navbar
-    let lastScrollY = window.scrollY;
-    
-    window.addEventListener('scroll', function() {
+    // Simple scroll style (no hide-on-scroll)
+    window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
-      const currentScrollY = window.scrollY;
-      
-      // Add scrolled class for styling
-      if (currentScrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-      
-      // Hide/show navbar on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        navbar.style.transform = 'translateX(-50%) translateY(-100%)';
-      } else {
-        navbar.style.transform = 'translateX(-50%) translateY(0)';
-      }
-      
-      lastScrollY = currentScrollY;
+      if (!navbar) return;
+      if (window.scrollY > 100) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
     });
 
     // Function to show fallback content when YouTube thumbnail fails
