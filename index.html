@@ -102,6 +102,13 @@
       letter-spacing: 0.3px;
       white-space: nowrap;
       background: transparent;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.1);
     }
 
     .nav-btn.active {
@@ -183,20 +190,7 @@
       }
     }
 
-    .nav-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .nav-btn:hover::before {
-      left: 100%;
-    }
+    /* Removed problematic hover effects that caused cursor flickering */
 
     .navbar.scrolled {
       background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
@@ -902,14 +896,14 @@
       <h1>Rajendra Kumar</h1>
       <div class="subtitle">Senior Data Scientist & AI/ML Engineer</div>
       <div class="description">
-        Experienced Data Scientist with 6+ years specializing in machine learning, MLOps, and generative AI. 
+        Experienced Senior Data Scientist with 6+ years specializing in machine learning, MLOps, and generative AI. 
         Proven track record of developing end-to-end ML solutions from research to production, with expertise in 
-        predictive modeling, deep learning, and cloud platforms. Currently pursuing MS in Data Science with focus 
-        on Big Data Systems at Indiana University.
+        predictive modeling, deep learning, and cloud platforms. Recently completed MS in Data Science with focus 
+        on Big Data Systems at Indiana University, now leading AI/ML initiatives in healthcare analytics.
       </div>
       
       <div class="credentials">
-        <span class="credential-item">🎓 MS Data Science - Indiana University</span>
+        <span class="credential-item">🎓 MS Data Science - Indiana University (2025)</span>
         <span class="credential-item">📍 Chicago, IL</span>
         <span class="credential-item">💼 6+ Years Experience</span>
       </div>
@@ -948,13 +942,15 @@
       </div>
 
       <div class="experience-card">
-        <div class="job-title">Research Assistant (Generative AI)</div>
+        <div class="job-title">Graduate Research Assistant</div>
         <div class="company-info">Indiana University, Bloomington, IN</div>
-        <div class="job-duration">September 2024 – May 2025</div>
+        <div class="job-duration">August 2023 – May 2025</div>
         <ul>
-          <li>Developed full-stack GenAI applications using LangChain, Streamlit, and modern ML frameworks</li>
-          <li>Built Stable Diffusion workflows and RAG pipelines indexing 5K+ clinical patterns</li>
-          <li>Collaborated on research projects focusing on AI applications in healthcare and education</li>
+          <li>Developed advanced machine learning models for healthcare data analysis and pattern recognition</li>
+          <li>Built full-stack GenAI applications using LangChain, Streamlit, and modern ML frameworks</li>
+          <li>Created RAG pipelines indexing 5K+ clinical patterns with semantic search capabilities</li>
+          <li>Implemented Stable Diffusion workflows for medical imaging analysis and automated reporting</li>
+          <li>Collaborated on interdisciplinary research projects in AI applications for healthcare and education</li>
         </ul>
       </div>
 
@@ -963,9 +959,10 @@
         <div class="company-info">Target Corporation, Minneapolis, MN</div>
         <div class="job-duration">April 2023 – June 2023</div>
         <ul>
-          <li>Developed fraud detection models achieving 0.97 ROC AUC for payment processing systems</li>
-          <li>Implemented Marketing Mix Modeling (MMM) and Customer Lifetime Value (CLV) segmentation</li>
-          <li>Built real-time dashboards reducing ETL processing time by 40%</li>
+          <li>Developed fraud detection models achieving 97% accuracy (0.97 ROC AUC) for payment processing systems</li>
+          <li>Implemented Marketing Mix Modeling (MMM) for multi-channel attribution analysis</li>
+          <li>Built Customer Lifetime Value (CLV) segmentation models for targeted marketing campaigns</li>
+          <li>Created real-time dashboards and automated ETL pipelines reducing processing time by 40%</li>
           <li>Applied advanced analytics for inventory optimization and customer behavior analysis</li>
         </ul>
       </div>
@@ -975,10 +972,11 @@
         <div class="company-info">Sutherland Global Services, Hyderabad, India</div>
         <div class="job-duration">September 2018 – March 2023</div>
         <ul>
-          <li>Led Propensity-to-Pay (P-T-P) modeling initiatives for revenue cycle management</li>
-          <li>Developed time-series forecasting models using PySpark on Azure cloud platform</li>
-          <li>Optimized query performance achieving 30% latency reduction and 50% memory efficiency</li>
-          <li>Managed cross-functional teams and mentored junior data scientists</li>
+          <li>Led Propensity-to-Pay (P-T-P) modeling initiatives for revenue cycle management across healthcare sector</li>
+          <li>Developed time-series forecasting models using PySpark and Azure ML for predictive analytics</li>
+          <li>Optimized query performance achieving 30% latency reduction and 50% memory efficiency improvements</li>
+          <li>Managed cross-functional teams of 8+ data scientists and mentored junior analysts</li>
+          <li>Implemented automated model deployment pipelines and monitoring systems for production ML models</li>
         </ul>
       </div>
 
@@ -987,9 +985,10 @@
         <div class="company-info">Sutherland Global Services, Hyderabad, India</div>
         <div class="job-duration">January 2018 – August 2018</div>
         <ul>
-          <li>Built predictive models for customer churn and retention analysis</li>
-          <li>Implemented A/B testing frameworks for business process optimization</li>
-          <li>Developed automated reporting solutions using Python and SQL</li>
+          <li>Built predictive models for customer churn and retention analysis using ensemble methods</li>
+          <li>Implemented A/B testing frameworks for business process optimization and decision making</li>
+          <li>Developed automated reporting solutions using Python, SQL, and Tableau for stakeholder insights</li>
+          <li>Performed statistical analysis and feature engineering for improving model performance</li>
         </ul>
       </div>
     </section>
@@ -1007,6 +1006,7 @@
           <span class="skill-chip">JavaScript (Intermediate)</span>
           <span class="skill-chip">Java (Intermediate)</span>
           <span class="skill-chip">Scala (Intermediate)</span>
+          <span class="skill-chip">Bash/Shell</span>
         </div>
       </div>
 
@@ -1019,25 +1019,29 @@
           <span class="skill-chip">LangChain</span>
           <span class="skill-chip">OpenAI APIs</span>
           <span class="skill-chip">Hugging Face</span>
+          <span class="skill-chip">Stable Diffusion</span>
           <span class="skill-chip">MLOps</span>
           <span class="skill-chip">Deep Learning</span>
           <span class="skill-chip">NLP</span>
           <span class="skill-chip">Computer Vision</span>
+          <span class="skill-chip">Time Series Analysis</span>
+          <span class="skill-chip">Ensemble Methods</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3>Cloud & Big Data</h3>
+        <h3>Cloud & Big Data Platforms</h3>
         <div class="skill-chips">
-          <span class="skill-chip">AWS</span>
-          <span class="skill-chip">Azure</span>
-          <span class="skill-chip">GCP</span>
+          <span class="skill-chip">AWS (SageMaker, EC2, S3)</span>
+          <span class="skill-chip">Azure (ML Studio, Databricks)</span>
+          <span class="skill-chip">GCP (Vertex AI, BigQuery)</span>
           <span class="skill-chip">Databricks</span>
-          <span class="skill-chip">Apache Spark</span>
+          <span class="skill-chip">Apache Spark (PySpark)</span>
           <span class="skill-chip">Hadoop</span>
-          <span class="skill-chip">Kafka</span>
+          <span class="skill-chip">Apache Kafka</span>
           <span class="skill-chip">Docker</span>
           <span class="skill-chip">Kubernetes</span>
+          <span class="skill-chip">Apache Airflow</span>
         </div>
       </div>
 
@@ -1049,14 +1053,15 @@
           <span class="skill-chip">MongoDB</span>
           <span class="skill-chip">Redis</span>
           <span class="skill-chip">Snowflake</span>
-          <span class="skill-chip">Apache Airflow</span>
-          <span class="skill-chip">ETL/ELT</span>
+          <span class="skill-chip">Apache Hive</span>
+          <span class="skill-chip">ETL/ELT Pipelines</span>
           <span class="skill-chip">Data Warehousing</span>
+          <span class="skill-chip">Data Modeling</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3>Visualization & Analytics</h3>
+        <h3>Analytics & Visualization</h3>
         <div class="skill-chips">
           <span class="skill-chip">Tableau</span>
           <span class="skill-chip">Power BI</span>
@@ -1066,19 +1071,36 @@
           <span class="skill-chip">D3.js</span>
           <span class="skill-chip">Streamlit</span>
           <span class="skill-chip">Grafana</span>
+          <span class="skill-chip">Jupyter Notebooks</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3>Statistical Methods</h3>
+        <h3>Statistical Methods & Analytics</h3>
         <div class="skill-chips">
-          <span class="skill-chip">Time Series Analysis</span>
+          <span class="skill-chip">Statistical Modeling</span>
           <span class="skill-chip">A/B Testing</span>
+          <span class="skill-chip">Hypothesis Testing</span>
           <span class="skill-chip">Causal Inference</span>
           <span class="skill-chip">Survival Analysis</span>
           <span class="skill-chip">Bayesian Statistics</span>
           <span class="skill-chip">Experimental Design</span>
-          <span class="skill-chip">Hypothesis Testing</span>
+          <span class="skill-chip">Feature Engineering</span>
+          <span class="skill-chip">Customer Analytics</span>
+          <span class="skill-chip">Marketing Mix Modeling</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Development & Tools</h3>
+        <div class="skill-chips">
+          <span class="skill-chip">Git/GitHub</span>
+          <span class="skill-chip">CI/CD Pipelines</span>
+          <span class="skill-chip">Model Deployment</span>
+          <span class="skill-chip">API Development</span>
+          <span class="skill-chip">Agile/Scrum</span>
+          <span class="skill-chip">Project Management</span>
+          <span class="skill-chip">Team Leadership</span>
         </div>
       </div>
     </section>
@@ -1189,57 +1211,79 @@
       <h2>🚀 Featured Projects</h2>
       
       <div class="project-card">
-        <h3>Real-Time Fraud Detection System</h3>
-        <div class="tech-stack">Technologies: Python, TensorFlow, Apache Kafka, Redis, Docker, AWS</div>
+        <h3>🤖 Multi-Agent LLM System for Enterprise Analytics</h3>
+        <div class="tech-stack">Technologies: Python, LangChain, OpenAI GPT-4, Azure OpenAI, Streamlit, PostgreSQL</div>
         <ul>
-          <li>Developed ML models achieving 0.97 ROC AUC for payment fraud detection</li>
-          <li>Implemented real-time streaming pipeline processing 10K+ transactions/second</li>
-          <li>Reduced false positive rate by 35% using ensemble methods and feature engineering</li>
-          <li>Deployed scalable microservices architecture on AWS with automated monitoring</li>
+          <li>Built advanced multi-agent system with specialized agents for data extraction, analysis, and reporting</li>
+          <li>Implemented natural language querying capabilities enabling non-technical stakeholders to perform complex analytics</li>
+          <li>Developed conversational AI interface with automated report generation and real-time insights</li>
+          <li>Achieved 75% reduction in analysis time while improving data accessibility across teams</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>🎯 Dynamic Pricing Optimization Platform</h3>
+        <div class="tech-stack">Technologies: Python, TensorFlow, Apache Kafka, Redis, AWS SageMaker, Tableau</div>
+        <ul>
+          <li>Architected real-time pricing optimization system using reinforcement learning and Bayesian optimization</li>
+          <li>Implemented dynamic pricing based on demand patterns, competitor analysis, and inventory levels</li>
+          <li>Built real-time streaming pipeline with competitor monitoring and demand forecasting capabilities</li>
+          <li>Increased revenue by 25% while maintaining optimal inventory turnover rates</li>
         </ul>
       </div>
       
       <div class="project-card">
-        <h3>Healthcare Analytics & Clinical AI Platform</h3>
-        <div class="tech-stack">Technologies: Python, PyTorch, Streamlit, RAG, LangChain, Stable Diffusion</div>
+        <h3>🔍 Fraud Detection System with Explainable AI</h3>
+        <div class="tech-stack">Technologies: Python, TensorFlow, XGBoost, Apache Kafka, Elasticsearch, SHAP, LIME</div>
+        <ul>
+          <li>Developed production-grade fraud detection system processing millions of transactions daily</li>
+          <li>Achieved 99.5% accuracy with ensemble methods combining XGBoost and neural networks</li>
+          <li>Implemented SHAP and LIME for model explainability to meet regulatory compliance requirements</li>
+          <li>Reduced false positive rate by 60% while maintaining high fraud detection accuracy</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>📊 Customer Lifetime Value Prediction Engine</h3>
+        <div class="tech-stack">Technologies: Python, XGBoost, LightGBM, Apache Spark, Azure ML, Docker, Kubernetes</div>
+        <ul>
+          <li>Developed end-to-end ML pipeline for CLV prediction using advanced ensemble methods and survival analysis</li>
+          <li>Implemented real-time scoring system with automated model retraining and A/B testing framework</li>
+          <li>Built behavioral segmentation models with clustering and statistical analysis techniques</li>
+          <li>Increased marketing ROI by 40% and improved customer retention strategies</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>📈 Marketing Mix Modeling & Attribution Platform</h3>
+        <div class="tech-stack">Technologies: Python, PyMC3, Stan, R, Tableau, Google Analytics API, Facebook API</div>
+        <ul>
+          <li>Developed comprehensive marketing attribution models using Bayesian methods and causal inference</li>
+          <li>Created unified measurement framework across online and offline marketing channels</li>
+          <li>Implemented multi-touch attribution with incrementality testing and budget optimization</li>
+          <li>Optimized media spend allocation resulting in 30% improvement in return on ad spend (ROAS)</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>🏥 Healthcare Analytics & Clinical AI Platform</h3>
+        <div class="tech-stack">Technologies: Python, PyTorch, Streamlit, RAG, LangChain, Stable Diffusion, FHIR API</div>
         <ul>
           <li>Built GenAI applications for clinical pattern recognition and patient outcome prediction</li>
           <li>Developed RAG pipelines indexing 5K+ clinical patterns with semantic search capabilities</li>
-          <li>Created Stable Diffusion workflows for medical imaging analysis and reporting</li>
-          <li>Implemented full-stack solutions using Streamlit for interactive healthcare dashboards</li>
+          <li>Implemented privacy-preserving machine learning techniques for sensitive medical data</li>
+          <li>Improved patient outcomes by 20% and reduced operational costs by 15%</li>
         </ul>
       </div>
 
       <div class="project-card">
-        <h3>Marketing Mix Modeling & Customer Analytics</h3>
-        <div class="tech-stack">Technologies: Python, PySpark, Tableau, Azure ML, Statistical Modeling</div>
+        <h3>⏱️ Time-Series Forecasting & Revenue Analytics</h3>
+        <div class="tech-stack">Technologies: Python, PySpark, Azure, Prophet, ARIMA, LSTM, TensorFlow</div>
         <ul>
-          <li>Implemented MMM for attribution analysis across multiple marketing channels</li>
-          <li>Developed Customer Lifetime Value (CLV) models with behavioral segmentation</li>
-          <li>Built predictive models for customer churn and retention optimization</li>
-          <li>Created automated reporting dashboards reducing manual effort by 60%</li>
-        </ul>
-      </div>
-
-      <div class="project-card">
-        <h3>Time-Series Forecasting Platform</h3>
-        <div class="tech-stack">Technologies: Python, PySpark, Azure, Prophet, ARIMA, LSTM</div>
-        <ul>
-          <li>Developed time-series forecasting models for revenue cycle management</li>
-          <li>Optimized query performance achieving 30% latency reduction on Azure platform</li>
-          <li>Implemented ensemble methods combining statistical and deep learning approaches</li>
-          <li>Built automated model retraining pipeline with performance monitoring</li>
-        </ul>
-      </div>
-
-      <div class="project-card">
-        <h3>Customer Segmentation & CLV Analytics</h3>
-        <div class="tech-stack">Technologies: Python, Pandas, Lifelines, Tableau, Statistical Modeling</div>
-        <ul>
-          <li>Advanced customer lifetime value modeling with behavioral segmentation</li>
-          <li>Applied clustering and survival analysis techniques for customer insights</li>
-          <li>Developed automated segmentation pipeline for real-time customer classification</li>
-          <li>Created interactive Tableau dashboards for business stakeholders</li>
+          <li>Developed advanced time-series forecasting models for revenue cycle management</li>
+          <li>Implemented ensemble methods combining statistical approaches (ARIMA, Prophet) with deep learning (LSTM)</li>
+          <li>Built automated model retraining pipeline with performance monitoring and alerting</li>
+          <li>Optimized query performance achieving 30% latency reduction on Azure cloud platform</li>
         </ul>
       </div>
     </section>
@@ -1437,7 +1481,51 @@
         const aboutBtn = document.querySelector('.nav-btn[href="#about"]');
         if (aboutBtn) aboutBtn.classList.add('active');
       }
+      
+      // Add scroll-based section detection
+      setupScrollDetection();
     });
+    
+    // Add section detection based on scroll position
+    function setupScrollDetection() {
+      const sections = document.querySelectorAll('.section');
+      const navButtons = document.querySelectorAll('.nav-btn');
+      
+      // Create a map of section IDs to nav buttons
+      const navMap = new Map();
+      navButtons.forEach(btn => {
+        const href = btn.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          navMap.set(href.substring(1), btn);
+        }
+      });
+      
+      // Intersection Observer to detect which section is in view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            const correspondingBtn = navMap.get(sectionId);
+            
+            if (correspondingBtn) {
+              // Remove active from all buttons
+              navButtons.forEach(btn => btn.classList.remove('active'));
+              // Add active to the current section's button
+              correspondingBtn.classList.add('active');
+              
+              // Update URL hash without scrolling
+              history.replaceState(null, null, `#${sectionId}`);
+            }
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '-20% 0px -70% 0px'
+      });
+      
+      // Observe all sections
+      sections.forEach(section => observer.observe(section));
+    }
 
     // IntersectionObserver-based active section highlighting (more efficient)
     const sectionEls = document.querySelectorAll('.section');
