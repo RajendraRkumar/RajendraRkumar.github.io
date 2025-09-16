@@ -957,6 +957,624 @@
         top: -35px;
       }
     }
+    
+    /* 3D Projects Styles */
+    .projects-3d-container {
+      width: 100%;
+      height: 80vh;
+      min-height: 600px;
+      position: relative;
+      margin: 2rem 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .projects-3d-stage {
+      width: 100%;
+      height: 100%;
+      perspective: 2000px;
+      perspective-origin: center center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .projects-3d-ring {
+      width: 300px;
+      height: 380px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(-10deg) rotateY(0deg);
+      transition: transform 0.3s ease;
+      cursor: grab;
+    }
+    
+    .projects-3d-ring:active {
+      cursor: grabbing;
+    }
+    
+    .project-card-3d {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transform-origin: center center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .project-card-3d::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--card-bg, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .project-card-inner {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem;
+      height: 100%;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      color: #2c3e50;
+    }
+    
+    .project-card-inner h3 {
+      color: #2c3e50;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .project-card-inner .tech-stack {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    
+    .project-card-inner ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .project-card-inner li {
+      background: rgba(52, 152, 219, 0.1);
+      margin: 0.6rem 0;
+      padding: 0.6rem;
+      border-radius: 8px;
+      border-left: 3px solid #3498db;
+      font-size: 0.75rem;
+      line-height: 1.3;
+      transition: all 0.3s ease;
+      color: #2c3e50;
+      position: relative;
+    }
+    
+    .project-card-inner li:before {
+      content: "▶";
+      color: #3498db;
+      font-weight: bold;
+      margin-right: 0.4rem;
+      font-size: 0.7rem;
+    }
+    
+    .project-card-inner li:hover {
+      background: rgba(52, 152, 219, 0.2);
+      transform: translateX(3px);
+    }
+    
+    /* 3D positioning for each card - smaller and closer */
+    .project-card-3d:nth-child(1) { transform: rotateY(0deg) translateZ(450px); }
+    .project-card-3d:nth-child(2) { transform: rotateY(60deg) translateZ(450px); }
+    .project-card-3d:nth-child(3) { transform: rotateY(120deg) translateZ(450px); }
+    .project-card-3d:nth-child(4) { transform: rotateY(180deg) translateZ(450px); }
+    .project-card-3d:nth-child(5) { transform: rotateY(240deg) translateZ(450px); }
+    .project-card-3d:nth-child(6) { transform: rotateY(300deg) translateZ(450px); }
+    
+    .projects-3d-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .control-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #5a6fd8, #6b5b95);
+    }
+    
+    .project-indicators {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .indicator.active {
+      background: white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      border-color: #667eea;
+    }
+    
+    .projects-3d-info {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+    
+    /* Hover effects for 3D cards - Stable popup instead of vibrating */
+    .project-card-3d {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transform-origin: center center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+    
+    .project-card-3d:hover {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Project popup overlay */
+    .project-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .project-popup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .project-popup-content {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      margin: 2rem;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      transform: scale(0.9) translateY(20px);
+      transition: all 0.3s ease;
+    }
+    
+    .project-popup.active .project-popup-content {
+      transform: scale(1) translateY(0);
+    }
+    
+    .project-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+    
+    .project-popup-close:hover {
+      background: #ff5252;
+      transform: scale(1.1);
+    }
+    
+    .project-popup h3 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 0.5rem;
+    }
+    
+    .project-popup .tech-stack {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      text-align: center;
+    }
+    
+    .project-popup ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .project-popup li {
+      background: rgba(52, 152, 219, 0.1);
+      margin: 1rem 0;
+      padding: 1.2rem;
+      border-radius: 15px;
+      border-left: 5px solid #3498db;
+      font-size: 1rem;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+      color: #2c3e50;
+      position: relative;
+    }
+    
+    .project-popup li:before {
+      content: "🚀";
+      margin-right: 0.8rem;
+      font-size: 1.1rem;
+    }
+    
+    .project-popup li:hover {
+      background: rgba(52, 152, 219, 0.2);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+    }
+    
+    /* Mobile responsiveness for 3D projects */
+    @media (max-width: 768px) {
+      .projects-3d-container {
+        height: 70vh;
+        min-height: 500px;
+      }
+      
+      .projects-3d-ring {
+        width: 250px;
+        height: 320px;
+      }
+      
+      .project-card-3d:nth-child(1) { transform: rotateY(0deg) translateZ(350px); }
+      .project-card-3d:nth-child(2) { transform: rotateY(60deg) translateZ(350px); }
+      .project-card-3d:nth-child(3) { transform: rotateY(120deg) translateZ(350px); }
+      .project-card-3d:nth-child(4) { transform: rotateY(180deg) translateZ(350px); }
+      .project-card-3d:nth-child(5) { transform: rotateY(240deg) translateZ(350px); }
+      .project-card-3d:nth-child(6) { transform: rotateY(300deg) translateZ(350px); }
+      
+      .project-card-inner {
+        padding: 1rem;
+        font-size: 0.8rem;
+      }
+      
+      .project-card-inner h3 {
+        font-size: 1rem;
+      }
+      
+      .project-card-inner .tech-stack {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.6rem;
+      }
+      
+      .project-card-inner li {
+        font-size: 0.7rem;
+        padding: 0.5rem;
+        margin: 0.4rem 0;
+      }
+      
+      .projects-3d-controls {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .control-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* 3D Gallery Styles */
+    .gallery-3d-container {
+      width: 100%;
+      height: 70vh;
+      min-height: 500px;
+      position: relative;
+      margin: 2rem 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .gallery-3d-stage {
+      width: 100%;
+      height: 100%;
+      perspective: 1800px;
+      perspective-origin: center center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .gallery-3d-ring {
+      width: 280px;
+      height: 350px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(-5deg) rotateY(0deg);
+      transition: transform 0.3s ease;
+      cursor: grab;
+    }
+    
+    .gallery-3d-ring:active {
+      cursor: grabbing;
+    }
+    
+    .gallery-item-3d {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transform-origin: center center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+    
+    .gallery-item-3d::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+      z-index: 0;
+    }
+    
+    .gallery-item-inner {
+      position: relative;
+      z-index: 1;
+      padding: 1rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .gallery-item-inner img {
+      max-width: 90%;
+      max-height: 70%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item-inner .video-thumbnail-link {
+      position: relative;
+      max-width: 90%;
+      max-height: 70%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .gallery-caption-3d {
+      margin-top: 1rem;
+      color: #2c3e50;
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1.3;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    
+    /* 3D positioning for gallery items (5 items) */
+    .gallery-item-3d:nth-child(1) { transform: rotateY(0deg) translateZ(400px); }
+    .gallery-item-3d:nth-child(2) { transform: rotateY(72deg) translateZ(400px); }
+    .gallery-item-3d:nth-child(3) { transform: rotateY(144deg) translateZ(400px); }
+    .gallery-item-3d:nth-child(4) { transform: rotateY(216deg) translateZ(400px); }
+    .gallery-item-3d:nth-child(5) { transform: rotateY(288deg) translateZ(400px); }
+    
+    .gallery-3d-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .gallery-control-btn {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .gallery-control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #2980b9, #1f4e79);
+    }
+    
+    .gallery-indicators {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .gallery-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .gallery-indicator.active {
+      background: white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      border-color: #3498db;
+    }
+    
+    .gallery-3d-info {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+    
+    /* Hover effects for 3D gallery items */
+    .gallery-item-3d:hover {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .gallery-item-3d:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Mobile responsiveness for 3D gallery */
+    @media (max-width: 768px) {
+      .gallery-3d-container {
+        height: 60vh;
+        min-height: 400px;
+      }
+      
+      .gallery-3d-ring {
+        width: 220px;
+        height: 280px;
+      }
+      
+      .gallery-item-3d:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
+      .gallery-item-3d:nth-child(2) { transform: rotateY(72deg) translateZ(300px); }
+      .gallery-item-3d:nth-child(3) { transform: rotateY(144deg) translateZ(300px); }
+      .gallery-item-3d:nth-child(4) { transform: rotateY(216deg) translateZ(300px); }
+      .gallery-item-3d:nth-child(5) { transform: rotateY(288deg) translateZ(300px); }
+      
+      .gallery-item-inner {
+        padding: 0.8rem;
+      }
+      
+      .gallery-caption-3d {
+        font-size: 0.7rem;
+        margin-top: 0.5rem;
+      }
+      
+      .gallery-3d-controls {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .gallery-control-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1295,93 +1913,101 @@
     <section id="projects" class="section">
       <h2>🚀 Featured Projects</h2>
       
-      <div class="project-card">
-        <h3>🤖 Multi-Agent LLM System for Enterprise Analytics</h3>
-        <div class="tech-stack">Technologies: Python, LangChain, OpenAI GPT-4, Azure OpenAI, Streamlit, PostgreSQL</div>
-        <ul>
-          <li>Built advanced multi-agent system with specialized agents for data extraction, analysis, and reporting</li>
-          <li>Implemented natural language querying capabilities enabling non-technical stakeholders to perform complex analytics</li>
-          <li>Developed conversational AI interface with automated report generation and real-time insights</li>
-          <li>Achieved 75% reduction in analysis time while improving data accessibility across teams</li>
-        </ul>
-      </div>
+      <div class="projects-3d-container">
+        <div class="projects-3d-stage" id="projects3DStage">
+          <div class="projects-3d-ring" id="projects3DRing">
+            
+            <div class="project-card-3d" style="--card-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <div class="project-card-inner">
+                <h3>🤖 Multi-Agent LLM System</h3>
+                <div class="tech-stack">Technologies: Python, LangChain, OpenAI GPT-4, Azure OpenAI, Streamlit, PostgreSQL</div>
+                <ul>
+                  <li>Built advanced multi-agent system with specialized agents for data extraction, analysis, and reporting</li>
+                  <li>Implemented natural language querying capabilities enabling non-technical stakeholders to perform complex analytics</li>
+                  <li>Developed conversational AI interface with automated report generation and real-time insights</li>
+                  <li>Achieved 75% reduction in analysis time while improving data accessibility across teams</li>
+                </ul>
+              </div>
+            </div>
 
-      <div class="project-card">
-        <h3>🎯 Dynamic Pricing Optimization Platform</h3>
-        <div class="tech-stack">Technologies: Python, TensorFlow, Apache Kafka, Redis, AWS SageMaker, Tableau</div>
-        <ul>
-          <li>Architected real-time pricing optimization system using reinforcement learning and Bayesian optimization</li>
-          <li>Implemented dynamic pricing based on demand patterns, competitor analysis, and inventory levels</li>
-          <li>Built real-time streaming pipeline with competitor monitoring and demand forecasting capabilities</li>
-          <li>Increased revenue by 25% while maintaining optimal inventory turnover rates</li>
-        </ul>
-      </div>
-      
-      <div class="project-card">
-        <h3>🔍 Fraud Detection System with Explainable AI</h3>
-        <div class="tech-stack">Technologies: Python, TensorFlow, XGBoost, Apache Kafka, Elasticsearch, SHAP, LIME</div>
-        <ul>
-          <li>Developed production-grade fraud detection system processing millions of transactions daily</li>
-          <li>Achieved 99.5% accuracy with ensemble methods combining XGBoost and neural networks</li>
-          <li>Implemented SHAP and LIME for model explainability to meet regulatory compliance requirements</li>
-          <li>Reduced false positive rate by 60% while maintaining high fraud detection accuracy</li>
-        </ul>
-      </div>
+            <div class="project-card-3d" style="--card-bg: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+              <div class="project-card-inner">
+                <h3>🎯 Dynamic Pricing Optimization</h3>
+                <div class="tech-stack">Technologies: Python, TensorFlow, Apache Kafka, Redis, AWS SageMaker, Tableau</div>
+                <ul>
+                  <li>Architected real-time pricing optimization system using reinforcement learning and Bayesian optimization</li>
+                  <li>Implemented dynamic pricing based on demand patterns, competitor analysis, and inventory levels</li>
+                  <li>Built real-time streaming pipeline with competitor monitoring and demand forecasting capabilities</li>
+                  <li>Increased revenue by 25% while maintaining optimal inventory turnover rates</li>
+                </ul>
+              </div>
+            </div>
 
-      <div class="project-card">
-        <h3>📊 Customer Lifetime Value Prediction Engine</h3>
-        <div class="tech-stack">Technologies: Python, XGBoost, LightGBM, Apache Spark, Azure ML, Docker, Kubernetes</div>
-        <ul>
-          <li>Developed end-to-end ML pipeline for CLV prediction using advanced ensemble methods and survival analysis</li>
-          <li>Implemented real-time scoring system with automated model retraining and A/B testing framework</li>
-          <li>Built behavioral segmentation models with clustering and statistical analysis techniques</li>
-          <li>Increased marketing ROI by 40% and improved customer retention strategies</li>
-        </ul>
-      </div>
+            <div class="project-card-3d" style="--card-bg: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+              <div class="project-card-inner">
+                <h3>🔍 Fraud Detection with Explainable AI</h3>
+                <div class="tech-stack">Technologies: Python, TensorFlow, XGBoost, Apache Kafka, Elasticsearch, SHAP, LIME</div>
+                <ul>
+                  <li>Developed production-grade fraud detection system processing millions of transactions daily</li>
+                  <li>Achieved 99.5% accuracy with ensemble methods combining XGBoost and neural networks</li>
+                  <li>Implemented SHAP and LIME for model explainability to meet regulatory compliance requirements</li>
+                  <li>Reduced false positive rate by 60% while maintaining high fraud detection accuracy</li>
+                </ul>
+              </div>
+            </div>
 
-      <div class="project-card">
-        <h3>📈 Marketing Mix Modeling & Attribution Platform</h3>
-        <div class="tech-stack">Technologies: Python, PyMC3, Stan, R, Tableau, Google Analytics API, Facebook API</div>
-        <ul>
-          <li>Developed comprehensive marketing attribution models using Bayesian methods and causal inference</li>
-          <li>Created unified measurement framework across online and offline marketing channels</li>
-          <li>Implemented multi-touch attribution with incrementality testing and budget optimization</li>
-          <li>Optimized media spend allocation resulting in 30% improvement in return on ad spend (ROAS)</li>
-        </ul>
-      </div>
+            <div class="project-card-3d" style="--card-bg: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+              <div class="project-card-inner">
+                <h3>📊 Customer Lifetime Value Engine</h3>
+                <div class="tech-stack">Technologies: Python, XGBoost, LightGBM, Apache Spark, Azure ML, Docker, Kubernetes</div>
+                <ul>
+                  <li>Developed end-to-end ML pipeline for CLV prediction using advanced ensemble methods and survival analysis</li>
+                  <li>Implemented real-time scoring system with automated model retraining and A/B testing framework</li>
+                  <li>Built behavioral segmentation models with clustering and statistical analysis techniques</li>
+                  <li>Increased marketing ROI by 40% and improved customer retention strategies</li>
+                </ul>
+              </div>
+            </div>
 
-      <div class="project-card">
-        <h3>📚 Intelligent Document Retrieval & RAG System</h3>
-        <div class="tech-stack">Technologies: Python, LangChain, PyMuPDF, SentenceTransformers, ChromaDB, OpenAI Embeddings</div>
-        <ul>
-          <li>Engineered document processing pipeline using LangChain and PyMuPDF to automatically chunk and embed PDF research papers, reducing manual literature review time by 75% for researchers</li>
-          <li>Designed intelligent document retrieval system leveraging SentenceTransformers and cosine similarity algorithms, achieving sub-second query response times for complex research questions across 200+ computer vision papers</li>
-          <li>Built scalable vector storage solution with ChromaDB persistent client and all-MiniLM-L6-v2 embeddings (384 dimensions), processing 200+ research papers into 15,000+ searchable document chunks</li>
-          <li>Implemented end-to-end RAG pipeline with configurable chunking strategies (800-character chunks, 200-character overlap) and similarity thresholds, improving research paper discovery relevance by 90%</li>
-          <li>Transformed research paper accessibility by developing semantic search system for 200+ computer vision publications, enabling instant retrieval of relevant content based on technical concepts like "ReLU nonlinearity" or "dataset limitations"</li>
-        </ul>
-      </div>
+            <div class="project-card-3d" style="--card-bg: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+              <div class="project-card-inner">
+                <h3>📈 Marketing Mix Modeling</h3>
+                <div class="tech-stack">Technologies: Python, PyMC3, Stan, R, Tableau, Google Analytics API, Facebook API</div>
+                <ul>
+                  <li>Developed comprehensive marketing attribution models using Bayesian methods and causal inference</li>
+                  <li>Created unified measurement framework across online and offline marketing channels</li>
+                  <li>Implemented multi-touch attribution with incrementality testing and budget optimization</li>
+                  <li>Optimized media spend allocation resulting in 30% improvement in return on ad spend (ROAS)</li>
+                </ul>
+              </div>
+            </div>
 
-      <div class="project-card">
-        <h3>🏥 Healthcare Analytics & Clinical AI Platform</h3>
-        <div class="tech-stack">Technologies: Python, PyTorch, Streamlit, RAG, LangChain, Stable Diffusion, FHIR API</div>
-        <ul>
-          <li>Built GenAI applications for clinical pattern recognition and patient outcome prediction</li>
-          <li>Developed RAG pipelines indexing 5K+ clinical patterns with semantic search capabilities</li>
-          <li>Implemented privacy-preserving machine learning techniques for sensitive medical data</li>
-          <li>Improved patient outcomes by 20% and reduced operational costs by 15%</li>
-        </ul>
-      </div>
+            <div class="project-card-3d" style="--card-bg: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+              <div class="project-card-inner">
+                <h3>📚 RAG Document Retrieval System</h3>
+                <div class="tech-stack">Technologies: Python, LangChain, PyMuPDF, SentenceTransformers, ChromaDB, OpenAI Embeddings</div>
+                <ul>
+                  <li>Engineered document processing pipeline reducing manual literature review time by 75%</li>
+                  <li>Designed intelligent retrieval system achieving sub-second query response times across 200+ papers</li>
+                  <li>Built scalable vector storage solution processing 200+ research papers into 15,000+ searchable chunks</li>
+                  <li>Implemented end-to-end RAG pipeline improving research paper discovery relevance by 90%</li>
+                  <li>Transformed research accessibility with semantic search for technical concepts</li>
+                </ul>
+              </div>
+            </div>
 
-      <div class="project-card">
-        <h3>⏱️ Time-Series Forecasting & Revenue Analytics</h3>
-        <div class="tech-stack">Technologies: Python, PySpark, Azure, Prophet, ARIMA, LSTM, TensorFlow</div>
-        <ul>
-          <li>Developed advanced time-series forecasting models for revenue cycle management</li>
-          <li>Implemented ensemble methods combining statistical approaches (ARIMA, Prophet) with deep learning (LSTM)</li>
-          <li>Built automated model retraining pipeline with performance monitoring and alerting</li>
-          <li>Optimized query performance achieving 30% latency reduction on Azure cloud platform</li>
-        </ul>
+          </div>
+        </div>
+        
+        <div class="projects-3d-controls">
+          <button class="control-btn" id="prevProject">‹ Previous</button>
+          <div class="project-indicators" id="projectIndicators"></div>
+          <button class="control-btn" id="nextProject">Next ›</button>
+        </div>
+        
+        <div class="projects-3d-info">
+          <p>🖱️ Click and drag to rotate • 📱 Swipe on mobile • ⌨️ Use arrow keys • 👆 Click cards for details</p>
+        </div>
       </div>
     </section>
 
@@ -1390,64 +2016,80 @@
       <h2>📸 Photo & Video Gallery</h2>
       <p>A collection of my educational and professional moments</p>
       
-      <div class="gallery-grid" id="gallery-content">
-        <div class="gallery-item">
-          <img src="assets/images/Sutherland.png" alt="Sutherland Professional Experience" onclick="openImageModal(this.src, this.alt)">
-          <div class="gallery-caption">Professional Experience at Sutherland Global Services</div>
-        </div>
-        
-        <div class="gallery-item">
-          <img src="assets/images/Target.jpg" alt="Appreciation at Target" onclick="openImageModal(this.src, this.alt)">
-          <div class="gallery-caption">Appreciation at Target</div>
-        </div>
-        
-        <div class="gallery-item">
-          <div class="video-thumbnail-link" onclick="window.open('https://www.youtube.com/watch?v=WP0dR8Jsu3g', '_blank')">
-            <img src="https://img.youtube.com/vi/WP0dR8Jsu3g/maxresdefault.jpg" 
-                 alt="College Performance - B.E. Days" 
-                 onerror="this.src='https://img.youtube.com/vi/WP0dR8Jsu3g/hqdefault.jpg'"
-                 onload="this.style.opacity='1'">
-            <div class="youtube-play-button">▶</div>
-            <div class="youtube-overlay">
-              <span>Watch on YouTube</span>
-            </div>
-          </div>
-          <div class="gallery-caption">College Performance - B.E. Days at University</div>
-        </div>
-        
-        <div class="gallery-item">
-          <div class="video-thumbnail-link" onclick="window.open('https://www.youtube.com/watch?v=9rRm5q05aUI', '_blank')">
-            <img src="" 
-                 alt="Red FM Contest - Prize Winning Performance" 
-                 style="opacity: 0;">
-            <div class="youtube-play-button">▶</div>
-            <div class="youtube-overlay">
-              <span>Watch on YouTube</span>
-            </div>
-            <!-- Fallback content if image doesn't load -->
-            <div class="video-fallback" style="display: none;">
-              <div class="fallback-content">
-                <div class="fallback-icon">🏆</div>
-                <div class="fallback-title">Red FM Contest Winner</div>
-                <div class="fallback-subtitle">Prize Winning Performance</div>
+      <div class="gallery-3d-container">
+        <div class="gallery-3d-stage" id="gallery3DStage">
+          <div class="gallery-3d-ring" id="gallery3DRing">
+            
+            <div class="gallery-item-3d">
+              <div class="gallery-item-inner">
+                <img src="assets/images/Sutherland.png" alt="Sutherland Professional Experience" onclick="openImageModal(this.src, this.alt)">
+                <div class="gallery-caption-3d">Professional Experience at Sutherland Global Services</div>
               </div>
             </div>
-          </div>
-          <div class="gallery-caption">Red FM Contest - Prize Winning Performance (B.E. Days)</div>
-        </div>
-        
-        <div class="gallery-item">
-          <img src="assets/images/RGPV NODAL.png" alt="RGPV Nodal Center Achievement" onclick="openImageModal(this.src, this.alt)">
-          <div class="gallery-caption">RGPV Nodal Center Achievement</div>
-        </div>
-        
-        <div class="gallery-item">
-          <img src="assets/images/TIIAM Target.jpg" alt="Target India Annual Meet" onclick="openImageModal(this.src, this.alt)">
-          <div class="gallery-caption">Target India Annual Meet</div>
-        </div>
-      </div>
-      
+            
+            <div class="gallery-item-3d">
+              <div class="gallery-item-inner">
+                <img src="assets/images/Target.jpg" alt="Appreciation at Target" onclick="openImageModal(this.src, this.alt)">
+                <div class="gallery-caption-3d">Appreciation at Target</div>
+              </div>
+            </div>
+            
+            <div class="gallery-item-3d">
+              <div class="gallery-item-inner">
+                <div class="video-thumbnail-link" onclick="window.open('https://www.youtube.com/watch?v=WP0dR8Jsu3g', '_blank')">
+                  <img src="https://img.youtube.com/vi/WP0dR8Jsu3g/maxresdefault.jpg" 
+                       alt="College Performance - B.E. Days" 
+                       onerror="this.src='https://img.youtube.com/vi/WP0dR8Jsu3g/hqdefault.jpg'"
+                       onload="this.style.opacity='1'">
+                  <div class="youtube-play-button">▶</div>
+                  <div class="youtube-overlay">
+                    <span>Watch on YouTube</span>
+                  </div>
                 </div>
+                <div class="gallery-caption-3d">College Performance - B.E. Days</div>
+              </div>
+            </div>
+            
+            <div class="gallery-item-3d">
+              <div class="gallery-item-inner">
+                <div class="video-thumbnail-link" onclick="window.open('https://www.youtube.com/watch?v=9rRm5q05aUI', '_blank')">
+                  <img src="" 
+                       alt="Red FM Contest - Prize Winning Performance" 
+                       style="opacity: 0;">
+                  <div class="youtube-play-button">▶</div>
+                  <div class="youtube-overlay">
+                    <span>Watch on YouTube</span>
+                  </div>
+                  <div class="video-fallback" style="display: none;">
+                    <div class="fallback-content">
+                      <div class="fallback-icon">🏆</div>
+                      <div class="fallback-title">Red FM Contest Winner</div>
+                      <div class="fallback-subtitle">Prize Winning Performance</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery-caption-3d">Red FM Contest - Prize Winner</div>
+              </div>
+            </div>
+            
+            <div class="gallery-item-3d">
+              <div class="gallery-item-inner">
+                <img src="assets/images/RGPV NODAL.png" alt="RGPV Nodal Center Achievement" onclick="openImageModal(this.src, this.alt)">
+                <div class="gallery-caption-3d">RGPV Nodal Center Achievement</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <div class="gallery-3d-controls">
+          <button class="gallery-control-btn" id="prevGallery">‹ Previous</button>
+          <div class="gallery-indicators" id="galleryIndicators"></div>
+          <button class="gallery-control-btn" id="nextGallery">Next ›</button>
+        </div>
+        
+        <div class="gallery-3d-info">
+          <p>🖱️ Click and drag to rotate • 📱 Swipe on mobile • 👆 Click items to view/play</p>
         </div>
       </div>
     </section>
@@ -1870,6 +2512,431 @@
         closeImageModal();
       }
     });
+
+    // 3D Projects Carousel Functionality
+    class Projects3DCarousel {
+      constructor() {
+        this.ring = document.getElementById('projects3DRing');
+        this.projects = document.querySelectorAll('.project-card-3d');
+        this.prevBtn = document.getElementById('prevProject');
+        this.nextBtn = document.getElementById('nextProject');
+        this.indicators = document.getElementById('projectIndicators');
+        
+        this.currentRotation = 0;
+        this.currentIndex = 0;
+        this.projectCount = this.projects.length;
+        this.rotationStep = 360 / this.projectCount;
+        
+        this.isDragging = false;
+        this.startX = 0;
+        this.startRotation = 0;
+        this.velocity = 0;
+        this.lastX = 0;
+        this.lastTime = 0;
+        
+        this.init();
+      }
+      
+      init() {
+        if (!this.ring || this.projectCount === 0) return;
+        
+        this.createIndicators();
+        this.attachEventListeners();
+        this.updateIndicators();
+        
+        // Initial positioning
+        this.updateRotation(0);
+      }
+      
+      createIndicators() {
+        this.indicators.innerHTML = '';
+        for (let i = 0; i < this.projectCount; i++) {
+          const indicator = document.createElement('div');
+          indicator.className = 'indicator';
+          indicator.addEventListener('click', () => this.goToProject(i));
+          this.indicators.appendChild(indicator);
+        }
+      }
+      
+      attachEventListeners() {
+        // Button controls
+        this.prevBtn.addEventListener('click', () => this.previousProject());
+        this.nextBtn.addEventListener('click', () => this.nextProject());
+        
+        // Project card click events for popup
+        this.projects.forEach((project, index) => {
+          project.addEventListener('click', (e) => {
+            // Only open popup if we didn't drag
+            if (!this.hasDragged && !this.isDragging) {
+              e.stopPropagation();
+              this.openProjectPopup(index);
+            }
+          });
+        });
+        
+        // Drag controls
+        this.ring.addEventListener('mousedown', (e) => this.handleDragStart(e));
+        this.ring.addEventListener('touchstart', (e) => this.handleDragStart(e));
+        
+        // Global drag events
+        document.addEventListener('mousemove', (e) => this.handleDragMove(e));
+        document.addEventListener('touchmove', (e) => this.handleDragMove(e));
+        document.addEventListener('mouseup', () => this.handleDragEnd());
+        document.addEventListener('touchend', () => this.handleDragEnd());
+        
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+          if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              this.previousProject();
+            } else if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              this.nextProject();
+            } else if (e.key === 'Escape') {
+              this.closeProjectPopup();
+            } else if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.openProjectPopup(this.currentIndex);
+            }
+          }
+        });
+      }
+      
+      handleDragStart(e) {
+        this.isDragging = false; // Start as false, will become true if actual drag happens
+        this.hasDragged = false;
+        this.ring.style.cursor = 'grabbing';
+        
+        const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+        this.startX = clientX;
+        this.lastX = clientX;
+        this.startRotation = this.currentRotation;
+        this.lastTime = Date.now();
+        this.velocity = 0;
+        
+        e.preventDefault();
+      }
+      
+      handleDragMove(e) {
+        if (!this.ring.style.cursor.includes('grabbing')) return;
+        
+        const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        const deltaX = Math.abs(clientX - this.startX);
+        
+        // Only start dragging if moved more than 5 pixels
+        if (deltaX > 5) {
+          this.isDragging = true;
+          this.hasDragged = true;
+        }
+        
+        if (!this.isDragging) return;
+        
+        const totalDeltaX = clientX - this.startX;
+        const currentTime = Date.now();
+        
+        // Calculate velocity for momentum
+        this.velocity = (clientX - this.lastX) / (currentTime - this.lastTime);
+        this.lastX = clientX;
+        this.lastTime = currentTime;
+        
+        // Convert drag distance to rotation
+        const rotationDelta = totalDeltaX * 0.5; // Adjust sensitivity
+        const newRotation = this.startRotation + rotationDelta;
+        
+        this.updateRotation(newRotation, false);
+        e.preventDefault();
+      }
+      
+      handleDragEnd() {
+        const wasDragging = this.isDragging;
+        this.ring.style.cursor = 'grab';
+        
+        if (wasDragging) {
+          // Apply momentum
+          const momentum = this.velocity * 100; // Adjust momentum strength
+          const finalRotation = this.currentRotation + momentum;
+          
+          // Snap to nearest project
+          const nearestIndex = Math.round(-finalRotation / this.rotationStep) % this.projectCount;
+          const adjustedIndex = nearestIndex < 0 ? nearestIndex + this.projectCount : nearestIndex;
+          
+          this.goToProject(adjustedIndex);
+        }
+        
+        // Reset drag state after a small delay to prevent immediate click events
+        setTimeout(() => {
+          this.isDragging = false;
+          this.hasDragged = false;
+        }, 100);
+      }
+      
+      updateRotation(rotation, animate = true) {
+        this.currentRotation = rotation;
+        
+        if (animate) {
+          this.ring.style.transition = 'transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1)';
+        } else {
+          this.ring.style.transition = 'none';
+        }
+        
+        this.ring.style.transform = `rotateX(-10deg) rotateY(${rotation}deg)`;
+        
+        // Reset transition after animation
+        if (animate) {
+          setTimeout(() => {
+            this.ring.style.transition = 'transform 0.3s ease';
+          }, 600);
+        }
+      }
+      
+      goToProject(index) {
+        this.currentIndex = index;
+        const targetRotation = -index * this.rotationStep;
+        this.updateRotation(targetRotation);
+        this.updateIndicators();
+      }
+      
+      nextProject() {
+        const nextIndex = (this.currentIndex + 1) % this.projectCount;
+        this.goToProject(nextIndex);
+      }
+      
+      previousProject() {
+        const prevIndex = this.currentIndex === 0 ? this.projectCount - 1 : this.currentIndex - 1;
+        this.goToProject(prevIndex);
+      }
+      
+      updateIndicators() {
+        const indicators = this.indicators.querySelectorAll('.indicator');
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === this.currentIndex);
+        });
+      }
+      
+      openProjectPopup(index) {
+        const project = this.projects[index];
+        const projectContent = project.querySelector('.project-card-inner').cloneNode(true);
+        
+        // Create popup overlay
+        const popup = document.createElement('div');
+        popup.className = 'project-popup';
+        popup.innerHTML = `
+          <div class="project-popup-content">
+            <button class="project-popup-close">&times;</button>
+            ${projectContent.innerHTML}
+          </div>
+        `;
+        
+        document.body.appendChild(popup);
+        
+        // Add event listeners
+        const closeBtn = popup.querySelector('.project-popup-close');
+        closeBtn.addEventListener('click', () => this.closeProjectPopup());
+        
+        popup.addEventListener('click', (e) => {
+          if (e.target === popup) {
+            this.closeProjectPopup();
+          }
+        });
+        
+        // Show popup with animation
+        setTimeout(() => {
+          popup.classList.add('active');
+        }, 10);
+        
+        // Store reference for closing
+        this.currentPopup = popup;
+      }
+      
+      closeProjectPopup() {
+        if (this.currentPopup) {
+          this.currentPopup.classList.remove('active');
+          setTimeout(() => {
+            if (this.currentPopup && this.currentPopup.parentNode) {
+              this.currentPopup.parentNode.removeChild(this.currentPopup);
+            }
+            this.currentPopup = null;
+          }, 300);
+        }
+      }
+    }
+    
+    // Initialize 3D Projects Carousel when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Small delay to ensure all elements are rendered
+      setTimeout(() => {
+        new Projects3DCarousel();
+        new Gallery3DCarousel();
+      }, 100);
+    });
+
+    // 3D Gallery Carousel Functionality
+    class Gallery3DCarousel {
+      constructor() {
+        this.ring = document.getElementById('gallery3DRing');
+        this.galleryItems = document.querySelectorAll('.gallery-item-3d');
+        this.prevBtn = document.getElementById('prevGallery');
+        this.nextBtn = document.getElementById('nextGallery');
+        this.indicators = document.getElementById('galleryIndicators');
+        
+        this.currentRotation = 0;
+        this.currentIndex = 0;
+        this.itemCount = this.galleryItems.length;
+        this.rotationStep = 360 / this.itemCount;
+        
+        this.isDragging = false;
+        this.startX = 0;
+        this.startRotation = 0;
+        this.velocity = 0;
+        this.lastX = 0;
+        this.lastTime = 0;
+        this.hasDragged = false;
+        
+        this.init();
+      }
+      
+      init() {
+        if (!this.ring || this.itemCount === 0) return;
+        
+        this.createIndicators();
+        this.attachEventListeners();
+        this.updateIndicators();
+        
+        // Initial positioning
+        this.updateRotation(0);
+      }
+      
+      createIndicators() {
+        this.indicators.innerHTML = '';
+        for (let i = 0; i < this.itemCount; i++) {
+          const indicator = document.createElement('div');
+          indicator.className = 'gallery-indicator';
+          indicator.addEventListener('click', () => this.goToItem(i));
+          this.indicators.appendChild(indicator);
+        }
+      }
+      
+      attachEventListeners() {
+        // Button controls
+        this.prevBtn.addEventListener('click', () => this.previousItem());
+        this.nextBtn.addEventListener('click', () => this.nextItem());
+        
+        // Drag controls
+        this.ring.addEventListener('mousedown', (e) => this.handleDragStart(e));
+        this.ring.addEventListener('touchstart', (e) => this.handleDragStart(e));
+        
+        // Global drag events
+        document.addEventListener('mousemove', (e) => this.handleDragMove(e));
+        document.addEventListener('touchmove', (e) => this.handleDragMove(e));
+        document.addEventListener('mouseup', () => this.handleDragEnd());
+        document.addEventListener('touchend', () => this.handleDragEnd());
+      }
+      
+      handleDragStart(e) {
+        this.isDragging = false;
+        this.hasDragged = false;
+        this.ring.style.cursor = 'grabbing';
+        
+        const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+        this.startX = clientX;
+        this.lastX = clientX;
+        this.startRotation = this.currentRotation;
+        this.lastTime = Date.now();
+        this.velocity = 0;
+        
+        e.preventDefault();
+      }
+      
+      handleDragMove(e) {
+        if (!this.ring.style.cursor.includes('grabbing')) return;
+        
+        const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        const deltaX = Math.abs(clientX - this.startX);
+        
+        if (deltaX > 5) {
+          this.isDragging = true;
+          this.hasDragged = true;
+        }
+        
+        if (!this.isDragging) return;
+        
+        const totalDeltaX = clientX - this.startX;
+        const currentTime = Date.now();
+        
+        this.velocity = (clientX - this.lastX) / (currentTime - this.lastTime);
+        this.lastX = clientX;
+        this.lastTime = currentTime;
+        
+        const rotationDelta = totalDeltaX * 0.5;
+        const newRotation = this.startRotation + rotationDelta;
+        
+        this.updateRotation(newRotation, false);
+        e.preventDefault();
+      }
+      
+      handleDragEnd() {
+        const wasDragging = this.isDragging;
+        this.ring.style.cursor = 'grab';
+        
+        if (wasDragging) {
+          const momentum = this.velocity * 100;
+          const finalRotation = this.currentRotation + momentum;
+          
+          const nearestIndex = Math.round(-finalRotation / this.rotationStep) % this.itemCount;
+          const adjustedIndex = nearestIndex < 0 ? nearestIndex + this.itemCount : nearestIndex;
+          
+          this.goToItem(adjustedIndex);
+        }
+        
+        setTimeout(() => {
+          this.isDragging = false;
+          this.hasDragged = false;
+        }, 100);
+      }
+      
+      updateRotation(rotation, animate = true) {
+        this.currentRotation = rotation;
+        
+        if (animate) {
+          this.ring.style.transition = 'transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1)';
+        } else {
+          this.ring.style.transition = 'none';
+        }
+        
+        this.ring.style.transform = `rotateX(-5deg) rotateY(${rotation}deg)`;
+        
+        if (animate) {
+          setTimeout(() => {
+            this.ring.style.transition = 'transform 0.3s ease';
+          }, 600);
+        }
+      }
+      
+      goToItem(index) {
+        this.currentIndex = index;
+        const targetRotation = -index * this.rotationStep;
+        this.updateRotation(targetRotation);
+        this.updateIndicators();
+      }
+      
+      nextItem() {
+        const nextIndex = (this.currentIndex + 1) % this.itemCount;
+        this.goToItem(nextIndex);
+      }
+      
+      previousItem() {
+        const prevIndex = this.currentIndex === 0 ? this.itemCount - 1 : this.currentIndex - 1;
+        this.goToItem(prevIndex);
+      }
+      
+      updateIndicators() {
+        const indicators = this.indicators.querySelectorAll('.gallery-indicator');
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === this.currentIndex);
+        });
+      }
+    }
   </script>
 </body>
 </html>
